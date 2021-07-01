@@ -9,6 +9,8 @@ module.exports = {
           '@config': './src/config',
           '@mock': './src/mock',
           '@routes': './src/routes',
+          '@screens': './src/screens',
+          '@theme': './src/theme',
         },
         extensions: ['.ios.js', '.android.js', '.js', '.json', '.tsx', '.ts'],
       },

@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
+import HomeContainer from '@screens/Home/Home.screen';
+
 import MainStackScreens from './MainStackScreens.enum';
-import HomeContainer from '../scenes/Home/Home.container';
 
 const Stack = createStackNavigator();
 
-const MainStackNavigator = React.memo(() => {
+const MainStackNavigator = memo(() => {
   return (
     <Stack.Navigator>
       <Stack.Screen name={MainStackScreens.HOME} component={HomeContainer} />
