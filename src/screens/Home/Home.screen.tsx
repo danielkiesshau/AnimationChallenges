@@ -5,7 +5,7 @@ import COLORS from '@theme/COLORS.enum';
 import HomeNative from './Home.native';
 import Labels from './Labels';
 
-const HomeContainer: React.FC<StackScreenProps<{}>> = ({ navigation }) => {
+const HomeScreen: React.FC<StackScreenProps<{}>> = ({ navigation }) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       title: Labels.HEADER_TITLE,
@@ -18,4 +18,4 @@ const HomeContainer: React.FC<StackScreenProps<{}>> = ({ navigation }) => {
   return <HomeNative />;
 };
 
-export default HomeContainer;
+export default HomeScreen;
