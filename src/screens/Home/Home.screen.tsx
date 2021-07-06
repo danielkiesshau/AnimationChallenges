@@ -1,11 +1,12 @@
-import { StackScreenProps } from '@react-navigation/stack';
 import React, { useLayoutEffect } from 'react';
+
 import COLORS from '@theme/COLORS.enum';
+import ScreensInterfaces from '@routes/ScreensInterfaces';
 
 import HomeNative from './Home.native';
 import Labels from './Labels';
 
-const HomeScreen: React.FC<StackScreenProps<{}>> = ({ navigation }) => {
+const HomeScreen: React.FC<ScreensInterfaces> = ({ navigation }) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       title: Labels.HEADER_TITLE,
@@ -15,7 +16,7 @@ const HomeScreen: React.FC<StackScreenProps<{}>> = ({ navigation }) => {
     });
   }, [navigation]);
 
-  return <HomeNative />;
+  return <HomeNative navigation={navigation} />;
 };
 
 export default HomeScreen;
