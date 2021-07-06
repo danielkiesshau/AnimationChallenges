@@ -6,5 +6,7 @@ module.exports = {
   rules: {
     '@typescript-eslint/explicit-function-return-type': ['error'],
     '@typescript-eslint/ban-types': 'off',
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': ['error'],
   },
 };
