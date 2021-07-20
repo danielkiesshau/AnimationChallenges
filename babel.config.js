@@ -7,7 +7,8 @@ module.exports = {
         alias: {
           '@icons': './src/assets/icons',
           '@config': './src/config',
-          '@mock': './src/mock',
+          '@mocks': './src/modules/mocks',
+          '@modules': './src/modules',
           '@routes': './src/routes',
           '@screens': './src/screens',
           '@theme': './src/theme',

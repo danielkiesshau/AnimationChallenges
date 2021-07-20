@@ -23,6 +23,33 @@ const Styles = StyleSheet.create({
     fontWeight: '600',
     fontSize: 16,
   },
+  tabSpacingFirstCol: {
+    marginRight: 20,
+    marginBottom: 20,
+  },
+  tabSpacingSecondCol: {
+    marginBottom: 20,
+  },
+  tabsColumn: {
+    width: '50%',
+  },
+  aboveTabCardZIndex: {
+    zIndex: 10,
+    shadowColor: 'black',
+    shadowOffset: {
+      height: 1,
+      width: 1,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  underTabCardZIndex: {
+    zIndex: 1,
+  },
+  animatedTabCard: {
+    position: 'absolute',
+  },
 });
 
 export default Styles;

@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { View, Text } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 
-import animationChallenges from '@mock/animationChallenges';
+import animationChallenges from '@mocks/animationChallenges';
 import MainStackScreens from '@routes/MainStackScreens.enum';
 import ScreensInterfaces from '@routes/ScreensInterfaces';
 

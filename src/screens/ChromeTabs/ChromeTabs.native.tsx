@@ -1,6 +1,5 @@
-import React from 'react';
-import { ListRenderItem, Text, View } from 'react-native';
-import { FlatList } from 'react-native-gesture-handler';
+import React, { ReactElement } from 'react';
+import { Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import Plus from '@icons/plus.svg';
@@ -27,25 +26,19 @@ const Header: React.FC<{}> = () => {
 
 export interface ChromeTabsNativeProps {
   tabs: Tab[];
-  renderTab: ListRenderItem<Tab>;
-  keyExtractor: (item: Tab, index: number) => string;
+  renderTab: (item: Tab, index: number) => ReactElement;
 }
 
 const ChromeTabsNative: React.FC<ChromeTabsNativeProps> = ({
   tabs,
   renderTab,
-  keyExtractor,
 }) => {
+  const listTabs = tabs.map((item, index) => renderTab(item, index));
+
   return (
     <SafeAreaView style={Styles.containerPage}>
       <Header />
-      <FlatList
-        data={tabs}
-        numColumns={2}
-        keyExtractor={keyExtractor}
-        renderItem={renderTab}
-        style={Styles.content}
-      />
+      <View style={Styles.content}>{listTabs}</View>
     </SafeAreaView>
   );
 };

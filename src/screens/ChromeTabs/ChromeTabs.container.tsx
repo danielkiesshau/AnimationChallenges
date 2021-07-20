@@ -1,32 +1,32 @@
-import React, { useCallback } from 'react';
-import { ListRenderItem } from 'react-native';
+import React, { ReactElement, useLayoutEffect } from 'react';
+import { StackScreenProps } from '@react-navigation/stack';
 
+import StatusBarStyle from '@modules/enums/StatusBarStyles';
 import tabs from '@screens/ChromeTabs/modules/mocks/tabs';
+import Tab from '@screens/ChromeTabs/modules/interfaces/Tab';
 
 import ChromeTabsNative from './ChromeTabs.native';
-import Styles from './ChromeTabs.styles';
-import TabCard from './TabCard/TabCard.native';
-import Tab from './modules/interfaces/Tab';
+import TabCardAnimated from './TabCard/TabCard.animated';
+import { StatusBar } from 'react-native';
 
-const ChromeTabsContainer: React.FC<{}> = () => {
-  const renderTab: ListRenderItem<Tab> = useCallback(({ item, index }) => {
-    const isFirstCol = index % 2 === 0;
+const ChromeTabsContainer: React.FC<StackScreenProps<{}>> = ({
+  navigation,
+}) => {
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerShown: false,
+    });
+  }, [navigation]);
 
-    const spacings = isFirstCol
-      ? Styles.tabSpacingFirstCol
-      : Styles.tabSpacingSecondCol;
-
-    return <TabCard title={item.title} style={spacings} />;
-  }, []);
-
-  const keyExtractor = (item: Tab): string => item.title;
+  const renderTab = (tab: Tab, index: number): ReactElement => {
+    return <TabCardAnimated key={tab.title} tab={tab} index={index} />;
+  };
 
   return (
-    <ChromeTabsNative
-      tabs={tabs}
-      renderTab={renderTab}
-      keyExtractor={keyExtractor}
-    />
+    <>
+      <StatusBar barStyle={StatusBarStyle.LIGHT} />
+      <ChromeTabsNative tabs={tabs} renderTab={renderTab} />
+    </>
   );
 };
 

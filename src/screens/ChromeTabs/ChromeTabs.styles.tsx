@@ -27,11 +27,6 @@ const Styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 20,
   },
-  tabSpacingFirstCol: {
-    marginRight: 20,
-    marginBottom: 20,
-  },
-  tabSpacingSecondCol: {},
 });
 
 export default Styles;

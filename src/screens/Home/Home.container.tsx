@@ -6,7 +6,7 @@ import ScreensInterfaces from '@routes/ScreensInterfaces';
 import HomeNative from './Home.native';
 import Labels from './Labels';
 
-const HomeScreen: React.FC<ScreensInterfaces> = ({ navigation }) => {
+const HomeScreenContainer: React.FC<ScreensInterfaces> = ({ navigation }) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       title: Labels.HEADER_TITLE,
@@ -19,4 +19,4 @@ const HomeScreen: React.FC<ScreensInterfaces> = ({ navigation }) => {
   return <HomeNative navigation={navigation} />;
 };
 
-export default HomeScreen;
+export default HomeScreenContainer;
