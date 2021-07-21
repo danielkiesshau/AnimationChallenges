@@ -1,7 +1,12 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import {
+  HandlerStateChangeEvent,
+  LongPressGestureHandler,
+  LongPressGestureHandlerEventPayload,
+  LongPressGestureHandlerGestureEvent,
   PanGestureHandler,
   PanGestureHandlerGestureEvent,
+  State,
 } from 'react-native-gesture-handler';
 import Animated, {
   runOnJS,
@@ -33,27 +38,35 @@ const TabCardAnimated: React.FC<Props> = ({ tab, index }) => {
   const [isDraggingTab, setIsDragginTab] = useState<boolean>();
   const translationsX = useSharedValue(translateX);
   const translationsY = useSharedValue(translateY);
+  const panRef = useRef();
 
-  const toggleDragging = (): void => {
-    setIsDragginTab(!isDraggingTab);
+  const onHandlerStateChange = ({
+    nativeEvent,
+  }: HandlerStateChangeEvent<LongPressGestureHandlerEventPayload>): void => {
+    const isLongPressing = nativeEvent.state === State.ACTIVE;
+    if (isLongPressing && !isDraggingTab) {
+      setIsDragginTab(true);
+      return;
+    }
   };
 
-  const gestureHandler = useAnimatedGestureHandler<
+  const panGestureHandler = useAnimatedGestureHandler<
     PanGestureHandlerGestureEvent,
     PanEventContext
   >({
     onStart: (_, context) => {
       context.startX = translationsX.value;
       context.startY = translationsY.value;
-      runOnJS(toggleDragging)();
     },
     onActive: (event, context) => {
-      translationsX.value = context.startX + event.translationX;
-      translationsY.value = context.startY + event.translationY;
+      if (isDraggingTab) {
+        translationsX.value = context.startX + event.translationX;
+        translationsY.value = context.startY + event.translationY;
+      }
     },
     onEnd: () => {
       translationsX.value = withTiming(translateX, undefined, () => {
-        runOnJS(toggleDragging)();
+        runOnJS(setIsDragginTab)(false);
       });
       translationsY.value = withTiming(translateY);
     },
@@ -82,25 +95,27 @@ const TabCardAnimated: React.FC<Props> = ({ tab, index }) => {
     return isDraggingTab ? { zIndex: 10 } : { zIndex: 1 };
   }, [isDraggingTab]);
 
+  const shadowStyle = isDraggingTab && Styles.aboveTabCardZIndex;
+
   return (
     <Animated.View style={tabElevation}>
-      {/* <LongPressGestureHandler
+      <LongPressGestureHandler
         onHandlerStateChange={onHandlerStateChange}
-        simultaneousHandlers={[panRef]}> */}
-      <Animated.View
-        style={[
-          Styles.tabsColumn,
-          Styles.animatedTabCard,
-          translateAnimationStyle,
-          isDraggingTab && Styles.aboveTabCardZIndex,
-        ]}>
-        <PanGestureHandler onGestureEvent={gestureHandler}>
-          <Animated.View>
-            <TabCard title={tab.title} style={spacings} />
-          </Animated.View>
-        </PanGestureHandler>
-      </Animated.View>
-      {/* </LongPressGestureHandler> */}
+        simultaneousHandlers={[panRef]}>
+        <Animated.View
+          style={[
+            Styles.tabsColumn,
+            Styles.animatedTabCard,
+            translateAnimationStyle,
+            shadowStyle,
+          ]}>
+          <PanGestureHandler ref={panRef} onGestureEvent={panGestureHandler}>
+            <Animated.View>
+              <TabCard title={tab.title} style={spacings} />
+            </Animated.View>
+          </PanGestureHandler>
+        </Animated.View>
+      </LongPressGestureHandler>
     </Animated.View>
   );
 };

@@ -34,7 +34,6 @@ const Styles = StyleSheet.create({
     width: '50%',
   },
   aboveTabCardZIndex: {
-    zIndex: 10,
     shadowColor: 'black',
     shadowOffset: {
       height: 1,
