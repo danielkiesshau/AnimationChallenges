@@ -3,8 +3,8 @@ import TAB_SIZE from '@screens/ChromeTabs/modules/enums/Tab';
 import tabs from './tabs';
 
 const SPACINGS = {
-  VERTICAL: 20,
-  HORIZONTAL: 65,
+  VERTICAL: 13,
+  HORIZONTAL: 25,
 };
 
 const tabPositions = tabs.map((tab, index) => {
@@ -12,8 +12,8 @@ const tabPositions = tabs.map((tab, index) => {
   const isFirstRow = index <= 1;
   const row = Math.floor(index / 2);
 
-  const tabX = isFirstCol ? 0 : TAB_SIZE.WIDTH + SPACINGS.VERTICAL;
-  const tabY = isFirstRow ? 0 : TAB_SIZE.WIDTH * row + SPACINGS.HORIZONTAL;
+  const tabX = isFirstCol ? 0 : TAB_SIZE.WIDTH + SPACINGS.HORIZONTAL;
+  const tabY = isFirstRow ? 0 : TAB_SIZE.HEIGHT * row + SPACINGS.VERTICAL;
 
   return {
     x: tabX,

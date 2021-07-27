@@ -8,7 +8,7 @@ import Styles from './TabCard.styles';
 
 interface TabCardProps {
   title: string;
-  style: StyleProp<ViewStyle>;
+  style?: StyleProp<ViewStyle>;
 }
 
 const TabCard: React.FC<TabCardProps> = ({ title, style }) => {

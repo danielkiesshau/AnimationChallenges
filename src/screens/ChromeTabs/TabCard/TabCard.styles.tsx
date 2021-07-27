@@ -24,14 +24,15 @@ const Styles = StyleSheet.create({
     fontSize: 16,
   },
   tabSpacingFirstCol: {
-    marginRight: 20,
-    marginBottom: 20,
+    marginRight: 15,
+    marginBottom: 15,
   },
   tabSpacingSecondCol: {
-    marginBottom: 20,
+    marginLeft: 15,
+    marginBottom: 15,
   },
   tabsColumn: {
-    width: '50%',
+    width: '48%',
   },
   aboveTabCardZIndex: {
     shadowColor: 'black',
