@@ -63,6 +63,8 @@ const TabCardAnimated: React.FC<Props> = ({
   });
   const translationsX = useSharedValue(translateX);
   const translationsY = useSharedValue(translateY);
+  const scale = useSharedValue(1);
+  const opacity = useSharedValue(1);
 
   const onHandlerStateChange = ({
     nativeEvent,
@@ -84,6 +86,9 @@ const TabCardAnimated: React.FC<Props> = ({
         x: translationsX.value,
         y: translationsY.value,
       };
+
+      scale.value = withTiming(0.8);
+      opacity.value = withTiming(0.7);
 
       context.startX = translationsX.value;
       context.startY = translationsY.value;
@@ -127,6 +132,8 @@ const TabCardAnimated: React.FC<Props> = ({
         translationsY.value = withTiming(translateY);
       }
 
+      scale.value = withTiming(1);
+      opacity.value = withTiming(1);
       activeTabPosition.value = null;
     },
   });
@@ -160,7 +167,11 @@ const TabCardAnimated: React.FC<Props> = ({
           {
             translateY: translationsY.value,
           },
+          {
+            scale: scale.value,
+          },
         ],
+        opacity: opacity.value,
       };
     }
 
