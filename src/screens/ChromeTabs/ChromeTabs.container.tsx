@@ -16,8 +16,8 @@ const ChromeTabsContainer: React.FC<StackScreenProps<{}>> = ({
 }) => {
   const switchToTabPosition = useSharedValue<TabOffset | null>(null);
   const activeTabPosition = useSharedValue<TabOffset | null>(null);
-  const activeTabX = useSharedValue<number>(0);
-  const activeTabY = useSharedValue<number>(0);
+  const activeTabX = useSharedValue<number>(-1);
+  const activeTabY = useSharedValue<number>(-1);
 
   useLayoutEffect(() => {
     navigation.setOptions({

@@ -66,14 +66,25 @@ const TabCardAnimated: React.FC<Props> = ({
   const scale = useSharedValue(1);
   const opacity = useSharedValue(1);
 
+  const setAnimDragTab = (shouldToggle: boolean): void => {
+    const newScale = shouldToggle ? 0.8 : 1;
+    const newOpacity = shouldToggle ? 0.7 : 1;
+    scale.value = withTiming(newScale);
+    opacity.value = withTiming(newOpacity);
+    setIsDragginTab(shouldToggle);
+  };
+
   const onHandlerStateChange = ({
     nativeEvent,
   }: HandlerStateChangeEvent<LongPressGestureHandlerEventPayload>): void => {
     const isLongPressing = nativeEvent.state === State.ACTIVE;
+    const hasFinishedLongPressing = nativeEvent.state === State.END;
     const shouldToggleIsDraggin = isLongPressing && !isDraggingTab;
 
     if (shouldToggleIsDraggin) {
-      setIsDragginTab(true);
+      setAnimDragTab(true);
+    } else if (hasFinishedLongPressing) {
+      setAnimDragTab(false);
     }
   };
 
@@ -86,9 +97,6 @@ const TabCardAnimated: React.FC<Props> = ({
         x: translationsX.value,
         y: translationsY.value,
       };
-
-      scale.value = withTiming(0.8);
-      opacity.value = withTiming(0.7);
 
       context.startX = translationsX.value;
       context.startY = translationsY.value;
@@ -112,7 +120,7 @@ const TabCardAnimated: React.FC<Props> = ({
     onEnd: () => {
       const shouldSwitch = !!switchToTabPosition.value;
 
-      if (shouldSwitch) {
+      const switchToNewPosition = (): void => {
         const newXPosition = switchToTabPosition.value?.x || 0;
         const newYPosition = switchToTabPosition.value?.y || 0;
 
@@ -123,18 +131,26 @@ const TabCardAnimated: React.FC<Props> = ({
         translationsX.value = withTiming(newXPosition, undefined, () => {
           runOnJS(setIsDragginTab)(false);
         });
-
-        switchToTabPosition.value = null;
-      } else {
+      };
+      const animateToOldPosition = (): void => {
         translationsX.value = withTiming(translateX, undefined, () => {
           runOnJS(setIsDragginTab)(false);
         });
         translationsY.value = withTiming(translateY);
+      };
+
+      if (shouldSwitch) {
+        switchToNewPosition();
+      } else {
+        animateToOldPosition();
       }
 
       scale.value = withTiming(1);
       opacity.value = withTiming(1);
+      switchToTabPosition.value = null;
       activeTabPosition.value = null;
+      activeTabX.value = -1;
+      activeTabY.value = -1;
     },
   });
 
@@ -204,7 +220,11 @@ const TabCardAnimated: React.FC<Props> = ({
         {
           translateY: withTiming(translationsY.value),
         },
+        {
+          scale: scale.value,
+        },
       ],
+      opacity: opacity.value,
     };
   }, [isDraggingTab]);
 

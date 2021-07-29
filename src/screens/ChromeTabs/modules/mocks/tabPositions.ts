@@ -4,7 +4,7 @@ import tabs from './tabs';
 
 const SPACINGS = {
   VERTICAL: 13,
-  HORIZONTAL: 25,
+  HORIZONTAL: 16,
 };
 
 const tabPositions = tabs.map((tab, index) => {
