@@ -12,6 +12,7 @@ module.exports = {
           '@routes': './src/routes',
           '@screens': './src/screens',
           '@theme': './src/theme',
+          '@components': './src/components',
         },
         extensions: ['.ios.js', '.android.js', '.js', '.json', '.tsx', '.ts'],
       },
