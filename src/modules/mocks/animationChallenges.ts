@@ -9,14 +9,19 @@ const animationChallenges: AnimationChallenge[] = [
     id: 'chrome',
     label: 'Chrome Tabs',
     icon: ChromeIcon,
-    route: MainStackScreens.HOME,
+    route: MainStackScreens.CHROME_TABS,
+  },
+  {
+    id: 'scrolling_animation',
+    label: 'Scrolling Animation',
+    route: MainStackScreens.SCROLLING_ANIMATION,
   },
 ];
 
 export interface AnimationChallenge {
   id: string;
   label: string;
-  icon: FC<SvgProps>;
+  icon?: FC<SvgProps>;
   route: string;
 }
 

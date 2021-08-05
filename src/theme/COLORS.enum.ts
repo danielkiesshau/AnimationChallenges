@@ -11,4 +11,8 @@ export enum CHROME_COLORS {
   LABELS = '#FDFEFF',
 }
 
+export enum SCROLLING_ANIMATION {
+  DEFAULT_CARD_BACKGROUND = 'black',
+}
+
 export default COLORS;

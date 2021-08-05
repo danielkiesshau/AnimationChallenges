@@ -3,7 +3,6 @@ import { View, Text } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 
 import animationChallenges from '@mocks/animationChallenges';
-import MainStackScreens from '@routes/MainStackScreens.enum';
 import ScreensInterfaces from '@routes/ScreensInterfaces';
 
 import Styles from './Home.styles';
@@ -14,15 +13,17 @@ const HomeNative: React.FC<ScreensInterfaces> = ({ navigation }) => {
       const Icon = item.icon;
 
       const handleChallengePress = (): void => {
-        navigation.push(MainStackScreens.CHROME_TABS, {});
+        navigation.push(item.route, {});
       };
+
+      const IconContainer = Icon && <Icon height={40} width={40} />;
 
       return (
         <RectButton
           key={item.id}
           style={Styles.containerChallenge}
           onPress={handleChallengePress}>
-          <Icon height={40} width={40} />
+          {IconContainer}
           <Text style={Styles.challengeLabel}>{item.label}</Text>
         </RectButton>
       );
