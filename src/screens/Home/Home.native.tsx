@@ -14,7 +14,9 @@ const HomeNative: React.FC<ScreensInterfaces> = ({ navigation }) => {
       const Icon = item.icon;
 
       const handleChallengePress = (): void => {
-        navigation.push(item.route, {});
+        navigation.push(item.route, {
+          animationChallenge: item,
+        });
       };
 
       const IconContainer = Icon && <Icon height={40} width={40} />;

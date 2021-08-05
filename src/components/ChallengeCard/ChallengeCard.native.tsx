@@ -1,4 +1,5 @@
-import React, { ReactElement } from 'react';
+import React, { FC } from 'react';
+import { SvgProps } from 'react-native-svg';
 import { Text } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 
@@ -8,8 +9,8 @@ import Styles from './ChallengeCard.styles';
 
 interface Props {
   challenge: AnimationChallenge;
-  icon: ReactElement;
-  handleChallengePress: () => void;
+  icon?: FC<SvgProps>;
+  handleChallengePress?: () => void;
 }
 
 const ChallengeCardNative: React.FC<Props> = ({
@@ -28,4 +29,7 @@ const ChallengeCardNative: React.FC<Props> = ({
   );
 };
 
+ChallengeCardNative.defaultProps = {
+  handleChallengePress: (): null => null,
+};
 export default ChallengeCardNative;

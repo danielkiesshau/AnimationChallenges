@@ -16,6 +16,11 @@ const animationChallenges: AnimationChallenge[] = [
     label: 'Scrolling Animation',
     route: MainStackScreens.SCROLLING_ANIMATION,
   },
+  {
+    id: 'shared_element',
+    label: 'Shared Element',
+    route: MainStackScreens.SHARED_ELEMENT,
+  },
 ];
 
 export interface AnimationChallenge {
