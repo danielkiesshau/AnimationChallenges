@@ -1,9 +1,10 @@
 import React, { useCallback } from 'react';
-import { View, Text } from 'react-native';
-import { FlatList, RectButton } from 'react-native-gesture-handler';
+import { View } from 'react-native';
+import { FlatList } from 'react-native-gesture-handler';
 
 import animationChallenges from '@mocks/animationChallenges';
 import ScreensInterfaces from '@routes/ScreensInterfaces';
+import ChallengeCardNative from '@components/ChallengeCard/ChallengeCard.native';
 
 import Styles from './Home.styles';
 
@@ -19,13 +20,12 @@ const HomeNative: React.FC<ScreensInterfaces> = ({ navigation }) => {
       const IconContainer = Icon && <Icon height={40} width={40} />;
 
       return (
-        <RectButton
+        <ChallengeCardNative
           key={item.id}
-          style={Styles.containerChallenge}
-          onPress={handleChallengePress}>
-          {IconContainer}
-          <Text style={Styles.challengeLabel}>{item.label}</Text>
-        </RectButton>
+          challenge={item}
+          icon={IconContainer}
+          handleChallengePress={handleChallengePress}
+        />
       );
     },
     [navigation],
