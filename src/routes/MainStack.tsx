@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createSharedElementStackNavigator } from 'react-navigation-shared-element';
+import { RouteProp } from '@react-navigation/native';
 
 import HomeScreen from '@screens/Home/Home.container';
 import ChromeTabsScreen from '@screens/ChromeTabs/ChromeTabs.container';
@@ -16,11 +17,26 @@ export type RootStackParams = {
   [MainStackScreens.SHARED_ELEMENT]: SharedElementNavigationParams;
 };
 
-const Stack = createStackNavigator<RootStackParams>();
+const Stack = createSharedElementStackNavigator<RootStackParams>();
+
+interface SharedElementItem {
+  id: string;
+}
 
 const MainStackNavigator = memo(() => {
+  const sharedElements = (
+    route: RouteProp<RootStackParams, MainStackScreens.SHARED_ELEMENT>,
+  ): SharedElementItem[] => {
+    const { animationChallenge } = route.params;
+    return [
+      {
+        id: animationChallenge.id,
+      },
+    ];
+  };
+
   return (
-    <Stack.Navigator>
+    <Stack.Navigator mode="modal">
       <Stack.Screen name={MainStackScreens.HOME} component={HomeScreen} />
       <Stack.Screen
         name={MainStackScreens.CHROME_TABS}
@@ -33,6 +49,7 @@ const MainStackNavigator = memo(() => {
       <Stack.Screen
         name={MainStackScreens.SHARED_ELEMENT}
         component={SharedElementNative}
+        sharedElements={sharedElements}
       />
     </Stack.Navigator>
   );

@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 import { View } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
+import { SharedElement } from 'react-navigation-shared-element';
 
 import animationChallenges from '@mocks/animationChallenges';
 import ScreensInterfaces from '@routes/ScreensInterfaces';
@@ -22,12 +23,14 @@ const HomeNative: React.FC<ScreensInterfaces> = ({ navigation }) => {
       const IconContainer = Icon && <Icon height={40} width={40} />;
 
       return (
-        <ChallengeCardNative
-          key={item.id}
-          challenge={item}
-          icon={IconContainer}
-          handleChallengePress={handleChallengePress}
-        />
+        <SharedElement id={item.id}>
+          <ChallengeCardNative
+            key={item.id}
+            challenge={item}
+            icon={IconContainer}
+            handleChallengePress={handleChallengePress}
+          />
+        </SharedElement>
       );
     },
     [navigation],
