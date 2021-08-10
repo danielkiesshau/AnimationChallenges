@@ -1,6 +1,9 @@
 import React, { memo } from 'react';
-import { createSharedElementStackNavigator } from 'react-navigation-shared-element';
-import { RouteProp } from '@react-navigation/native';
+import {
+  createSharedElementStackNavigator,
+  SharedElementCompatRoute,
+  SharedElementsComponentConfig,
+} from 'react-navigation-shared-element';
 
 import HomeScreen from '@screens/Home/Home.container';
 import ChromeTabsScreen from '@screens/ChromeTabs/ChromeTabs.container';
@@ -19,15 +22,12 @@ export type RootStackParams = {
 
 const Stack = createSharedElementStackNavigator<RootStackParams>();
 
-interface SharedElementItem {
-  id: string;
-}
-
 const MainStackNavigator = memo(() => {
-  const sharedElements = (
-    route: RouteProp<RootStackParams, MainStackScreens.SHARED_ELEMENT>,
-  ): SharedElementItem[] => {
+  const sharedElements: SharedElementsComponentConfig = (
+    route: SharedElementCompatRoute,
+  ) => {
     const { animationChallenge } = route.params;
+
     return [
       {
         id: animationChallenge.id,
