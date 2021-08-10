@@ -21,6 +21,11 @@ const animationChallenges: AnimationChallenge[] = [
     label: 'Shared Element',
     route: MainStackScreens.SHARED_ELEMENT,
   },
+  {
+    id: 'sticky_square',
+    label: 'Sticky Square',
+    route: MainStackScreens.STICKY_SQUARE,
+  },
 ];
 
 export interface AnimationChallenge {

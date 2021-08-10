@@ -10,6 +10,7 @@ import ChromeTabsScreen from '@screens/ChromeTabs/ChromeTabs.container';
 import ScrollingAnimationScreen from '@screens/ScrollingAnimation/ScrollingAnimation.container';
 import SharedElementNative from '@screens/SharedElement/SharedElement.native';
 import SharedElementNavigationParams from '@screens/SharedElement/modules/interfaces/SharedElementNavigationParams';
+import StickySquareNative from '@screens/StickySquare/StickySquare.native';
 
 import MainStackScreens from './MainStackScreens.enum';
 
@@ -18,6 +19,7 @@ export type RootStackParams = {
   [MainStackScreens.CHROME_TABS]: undefined;
   [MainStackScreens.SCROLLING_ANIMATION]: undefined;
   [MainStackScreens.SHARED_ELEMENT]: SharedElementNavigationParams;
+  [MainStackScreens.STICKY_SQUARE]: undefined;
 };
 
 const Stack = createSharedElementStackNavigator<RootStackParams>();
@@ -50,6 +52,10 @@ const MainStackNavigator = memo(() => {
         name={MainStackScreens.SHARED_ELEMENT}
         component={SharedElementNative}
         sharedElements={sharedElements}
+      />
+      <Stack.Screen
+        name={MainStackScreens.STICKY_SQUARE}
+        component={StickySquareNative}
       />
     </Stack.Navigator>
   );
