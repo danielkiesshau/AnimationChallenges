@@ -6,12 +6,20 @@ import { SharedElement } from 'react-navigation-shared-element';
 import animationChallenges from '@mocks/animationChallenges';
 import ScreensInterfaces from '@routes/ScreensInterfaces';
 import ChallengeCardNative from '@components/ChallengeCard/ChallengeCard.native';
+import ChallengeCardStyles from '@components/ChallengeCard/ChallengeCard.styles';
 
 import Styles from './Home.styles';
 
 const HomeNative: React.FC<ScreensInterfaces> = ({ navigation }) => {
   const renderItem = useCallback(
     ({ item }) => {
+      if (!item.id) {
+        const size = {
+          height: ChallengeCardStyles.containerChallenge.height,
+          width: ChallengeCardStyles.containerChallenge.width,
+        };
+        return <View style={size} />;
+      }
       const Icon = item.icon;
 
       const handleChallengePress = (): void => {

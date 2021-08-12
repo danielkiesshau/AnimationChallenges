@@ -26,6 +26,14 @@ const animationChallenges: AnimationChallenge[] = [
     label: 'Sticky Square',
     route: MainStackScreens.STICKY_SQUARE,
   },
+  {
+    id: 'lidquid_swipe',
+    label: 'Liquid Swipe',
+    route: MainStackScreens.LIQUID_SWIPE,
+  },
+  {
+    id: null,
+  },
 ];
 
 export interface AnimationChallenge {

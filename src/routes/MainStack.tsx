@@ -11,6 +11,7 @@ import ScrollingAnimationScreen from '@screens/ScrollingAnimation/ScrollingAnima
 import SharedElementNative from '@screens/SharedElement/SharedElement.native';
 import SharedElementNavigationParams from '@screens/SharedElement/modules/interfaces/SharedElementNavigationParams';
 import StickySquareNative from '@screens/StickySquare/StickySquare.container';
+import LiquidSwipeScreen from '@screens/LiquidSwipe/LiquidSwipe.container';
 
 import MainStackScreens from './MainStackScreens.enum';
 
@@ -20,6 +21,7 @@ export type RootStackParams = {
   [MainStackScreens.SCROLLING_ANIMATION]: undefined;
   [MainStackScreens.SHARED_ELEMENT]: SharedElementNavigationParams;
   [MainStackScreens.STICKY_SQUARE]: undefined;
+  [MainStackScreens.LIQUID_SWIPE]: undefined;
 };
 
 const Stack = createSharedElementStackNavigator<RootStackParams>();
@@ -56,6 +58,13 @@ const MainStackNavigator = memo(() => {
       <Stack.Screen
         name={MainStackScreens.STICKY_SQUARE}
         component={StickySquareNative}
+      />
+      <Stack.Screen
+        name={MainStackScreens.LIQUID_SWIPE}
+        component={LiquidSwipeScreen}
+        options={{
+          headerShown: false,
+        }}
       />
     </Stack.Navigator>
   );

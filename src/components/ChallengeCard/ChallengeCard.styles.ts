@@ -11,7 +11,7 @@ const Styles = StyleSheet.create({
     backgroundColor: COLORS.WHITE_1,
     borderRadius: 8,
     paddingVertical: 10,
-    marginVertical: 24,
+    marginBottom: 24,
     elevation: 1,
     shadowColor: COLORS.GRAY_1,
     shadowOpacity: 0.3,

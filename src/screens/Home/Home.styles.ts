@@ -10,6 +10,7 @@ const Styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: COLORS.WHITE_2,
     paddingHorizontal: 24,
+    paddingTop: 24,
   },
   columns: {
     justifyContent: 'space-between',
