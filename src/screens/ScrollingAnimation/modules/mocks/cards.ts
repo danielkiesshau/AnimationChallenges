@@ -3,43 +3,43 @@ import Card from '@screens/ScrollingAnimation/modules/interfaces/Card';
 const cards: Card[] = [
   {
     id: '0',
-    backgroundColor: 'red',
+    image: require('../assets/card1.png'),
   },
   {
     id: '1',
-    backgroundColor: 'green',
+    image: require('../assets/card2.png'),
   },
   {
     id: '2',
-    backgroundColor: 'blue',
+    image: require('../assets/card3.png'),
   },
   {
     id: '3',
-    backgroundColor: 'yellow',
+    image: require('../assets/card4.png'),
   },
   {
     id: '4',
-    backgroundColor: 'black',
+    image: require('../assets/card1.png'),
   },
   {
     id: '5',
-    backgroundColor: 'red',
+    image: require('../assets/card2.png'),
   },
   {
     id: '6',
-    backgroundColor: 'green',
+    image: require('../assets/card1.png'),
   },
   {
     id: '7',
-    backgroundColor: 'blue',
+    image: require('../assets/card2.png'),
   },
   {
     id: '8',
-    backgroundColor: 'yellow',
+    image: require('../assets/card3.png'),
   },
   {
     id: '9',
-    backgroundColor: 'black',
+    image: require('../assets/card4.png'),
   },
 ];
 

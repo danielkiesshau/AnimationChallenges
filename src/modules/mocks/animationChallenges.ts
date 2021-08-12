@@ -4,7 +4,7 @@ import { SvgProps } from 'react-native-svg';
 import ChromeIcon from '@icons/chrome_icon.svg';
 import MainStackScreens from '@routes/MainStackScreens.enum';
 
-const animationChallenges: AnimationChallenge[] = [
+const animationChallenges: AnimationChallenge[] | object[] = [
   {
     id: 'chrome',
     label: 'Chrome Tabs',
@@ -31,9 +31,7 @@ const animationChallenges: AnimationChallenge[] = [
     label: 'Liquid Swipe',
     route: MainStackScreens.LIQUID_SWIPE,
   },
-  {
-    id: null,
-  },
+  {},
 ];
 
 export interface AnimationChallenge {

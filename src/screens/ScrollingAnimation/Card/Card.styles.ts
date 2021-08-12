@@ -1,13 +1,13 @@
 import { StyleSheet } from 'react-native';
-import { SCROLLING_ANIMATION } from '@theme/COLORS.enum';
 
 const Styles = StyleSheet.create({
-  container: {
+  card: {
     alignSelf: 'center',
-    height: 250,
+    height: 199,
     width: '85%',
     borderRadius: 12,
-    backgroundColor: SCROLLING_ANIMATION.DEFAULT_CARD_BACKGROUND,
+  },
+  shadow: {
     shadowColor: 'black',
     shadowOffset: {
       height: 1,

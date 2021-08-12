@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dimensions } from 'react-native';
+import { Dimensions, Image } from 'react-native';
 import Animated, {
   interpolate,
   useAnimatedStyle,
@@ -21,7 +21,7 @@ interface Props {
 
 const CardItem: React.FC<Props> = ({ index, card, scroll }) => {
   const animatedStyle = useAnimatedStyle(() => {
-    const CARD_SIZE = 270;
+    const CARD_SIZE = 219;
 
     const position = minClamp(
       interpolate(
@@ -69,16 +69,11 @@ const CardItem: React.FC<Props> = ({ index, card, scroll }) => {
     };
   });
 
-  const composedStyle = [
-    {
-      backgroundColor: card.backgroundColor,
-    },
-    Styles.container,
-  ];
+  const composedStyle = [Styles.container];
 
   return (
     <Animated.View style={animatedStyle}>
-      <CardNative style={composedStyle} />
+      <CardNative style={composedStyle} image={card.image} />
     </Animated.View>
   );
 };

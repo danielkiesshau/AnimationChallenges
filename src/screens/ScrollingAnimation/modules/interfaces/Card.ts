@@ -1,6 +1,6 @@
 interface Card {
   id: string;
-  backgroundColor: string;
+  image: string;
 }
 
 export default Card;
