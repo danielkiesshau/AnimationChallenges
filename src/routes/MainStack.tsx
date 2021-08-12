@@ -10,7 +10,7 @@ import ChromeTabsScreen from '@screens/ChromeTabs/ChromeTabs.container';
 import ScrollingAnimationScreen from '@screens/ScrollingAnimation/ScrollingAnimation.container';
 import SharedElementNative from '@screens/SharedElement/SharedElement.native';
 import SharedElementNavigationParams from '@screens/SharedElement/modules/interfaces/SharedElementNavigationParams';
-import StickySquareNative from '@screens/StickySquare/StickySquare.native';
+import StickySquareNative from '@screens/StickySquare/StickySquare.container';
 
 import MainStackScreens from './MainStackScreens.enum';
 
