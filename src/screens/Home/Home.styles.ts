@@ -9,11 +9,14 @@ const Styles = StyleSheet.create({
     flexWrap: 'wrap',
     alignItems: 'center',
     backgroundColor: COLORS.WHITE_2,
-    paddingHorizontal: 24,
-    paddingTop: 24,
   },
   columns: {
     justifyContent: 'space-between',
+  },
+  content: {
+    flex: 1,
+    paddingHorizontal: 24,
+    paddingTop: 24,
   },
 });
 

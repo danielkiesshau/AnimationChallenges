@@ -51,6 +51,7 @@ const HomeNative: React.FC<ScreensInterfaces> = ({ navigation }) => {
         renderItem={renderItem}
         numColumns={3}
         columnWrapperStyle={Styles.columns}
+        contentContainerStyle={Styles.content}
       />
     </View>
   );
