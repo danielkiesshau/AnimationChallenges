@@ -14,6 +14,8 @@
 		2F3288B803E9890B60A9C4AD /* libPods-AnimationChallenges.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 193167C01C057F8BAA2FFA4F /* libPods-AnimationChallenges.a */; };
 		3AA161A78E1A3B39A6DC87F1 /* libPods-AnimationChallenges-AnimationChallengesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EBA41EDBF50DCC10BFC6ACE /* libPods-AnimationChallenges-AnimationChallengesTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		CBF4A066AEF2461F9F3BB0EA /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = ED0DFA89608B4570A5C60F51 /* SF-Pro-Display-Regular.otf */; };
+		CD8285AE3D594504A4F18190 /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = BEFEE73D9DFA43749F29F462 /* SF-Pro-Display-Bold.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +44,9 @@
 		426A08710BB1EE9C67144212 /* Pods-AnimationChallenges-AnimationChallengesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimationChallenges-AnimationChallengesTests.release.xcconfig"; path = "Target Support Files/Pods-AnimationChallenges-AnimationChallengesTests/Pods-AnimationChallenges-AnimationChallengesTests.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = AnimationChallenges/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A2F0E09BF2485026060573B1 /* Pods-AnimationChallenges.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimationChallenges.debug.xcconfig"; path = "Target Support Files/Pods-AnimationChallenges/Pods-AnimationChallenges.debug.xcconfig"; sourceTree = "<group>"; };
+		BEFEE73D9DFA43749F29F462 /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "SF-Pro-Display-Bold.otf"; path = "../src/assets/fonts/fonts/SFPro/SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
 		D2A71749DEB38C580DF64186 /* Pods-AnimationChallenges-AnimationChallengesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimationChallenges-AnimationChallengesTests.debug.xcconfig"; path = "Target Support Files/Pods-AnimationChallenges-AnimationChallengesTests/Pods-AnimationChallenges-AnimationChallengesTests.debug.xcconfig"; sourceTree = "<group>"; };
+		ED0DFA89608B4570A5C60F51 /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "SF-Pro-Display-Regular.otf"; path = "../src/assets/fonts/fonts/SFPro/SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -118,6 +122,16 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		5309D72546CC4B99AE1AD9B7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BEFEE73D9DFA43749F29F462 /* SF-Pro-Display-Bold.otf */,
+				ED0DFA89608B4570A5C60F51 /* SF-Pro-Display-Regular.otf */,
+			);
+			name = Resources;
+			path = "";
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +148,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				2D98063DBFAFAFB726110A31 /* Pods */,
+				5309D72546CC4B99AE1AD9B7 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -245,6 +260,8 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				CD8285AE3D594504A4F18190 /* SF-Pro-Display-Bold.otf in Resources */,
+				CBF4A066AEF2461F9F3BB0EA /* SF-Pro-Display-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
