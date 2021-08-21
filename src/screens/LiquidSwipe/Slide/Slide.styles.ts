@@ -1,12 +1,15 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
 const { width } = Dimensions.get('screen');
-const SIZE = width - 75;
+
+export const DEFAULT_PADDING = 75;
+
+const SIZE = width - DEFAULT_PADDING;
 
 const Styles = StyleSheet.create({
   container: {
     ...StyleSheet.absoluteFillObject,
-    padding: 75,
+    padding: DEFAULT_PADDING,
     paddingTop: 150,
     alignItems: 'center',
   },
@@ -26,6 +29,9 @@ const Styles = StyleSheet.create({
     color: 'white',
     textAlign: 'center',
     fontFamily: 'SFProDisplay-Regular',
+  },
+  leftWave: {
+    zIndex: 2,
   },
 });
 
