@@ -2,7 +2,8 @@ import { StyleSheet, Dimensions } from 'react-native';
 
 const { width } = Dimensions.get('screen');
 
-export const DEFAULT_PADDING = 75;
+export const MIN_LEDGE = 25;
+export const DEFAULT_PADDING = MIN_LEDGE + 50;
 
 const SIZE = width - DEFAULT_PADDING;
 
