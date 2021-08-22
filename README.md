@@ -21,17 +21,11 @@ On Android the mask animation still need some work for a better performance. In 
 
 ## GIFS
 
-#### Chrome Tabs
-<img src="src/assets/gifs/chrome_tabs.gif" height="450"/> 
+### Chrome Tabs & Scrolling Animation
+<img src="src/assets/gifs/chrome_tabs.gif" height="450"/>  <img src="src/assets/gifs/scrolling_animation.gif" height="450"/>
 
-#### Scrolling Animation
-<img src="src/assets/gifs/scrolling_animation.gif" height="450"/>
-
-#### Shared Elements
-<img src="src/assets/gifs/shared_element.gif" height="450"/>
-
-#### Sticky Square
-<img src="src/assets/gifs/sticky_square.gif" height="450"/> 
+### Shared Elements & Sticky Square
+<img src="src/assets/gifs/shared_element.gif" height="450"/>  <img src="src/assets/gifs/sticky_square.gif" height="450"/> 
 
 #### Liquid Swipe
 <img src="src/assets/gifs/liquid_swipe.gif" height="450"/>
