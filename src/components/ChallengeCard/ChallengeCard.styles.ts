@@ -6,8 +6,8 @@ const Styles = StyleSheet.create({
   containerChallenge: {
     justifyContent: 'center',
     alignItems: 'center',
-    height: 93,
-    width: 116,
+    height: 115,
+    width: 100,
     backgroundColor: COLORS.WHITE_1,
     borderRadius: 8,
     paddingVertical: 10,
@@ -26,6 +26,7 @@ const Styles = StyleSheet.create({
     fontSize: 17,
     lineHeight: 25,
     marginTop: 8,
+    marginHorizontal: 4,
   },
 });
 
