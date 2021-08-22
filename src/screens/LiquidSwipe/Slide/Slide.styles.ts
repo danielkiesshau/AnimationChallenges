@@ -11,7 +11,7 @@ const Styles = StyleSheet.create({
   container: {
     ...StyleSheet.absoluteFillObject,
     padding: DEFAULT_PADDING,
-    paddingTop: 150,
+    justifyContent: 'center',
     alignItems: 'center',
   },
   image: {
@@ -19,7 +19,7 @@ const Styles = StyleSheet.create({
     height: SIZE,
   },
   title: {
-    fontSize: 48,
+    fontSize: 40,
     color: 'white',
     textAlign: 'center',
     marginBottom: 16,

@@ -23,8 +23,10 @@ interface Props {
   current: ReactNode;
   previous: ReactNode;
   next: ReactNode;
+  transition: ReactNode;
   setIndex: (index: number) => void;
   setCurrIndex: (index: number) => void;
+  setTransitionIndex: (index: number) => void;
   index: number;
 }
 
@@ -32,9 +34,11 @@ const SliderAnimated: React.FC<Props> = ({
   current,
   previous,
   next,
+  transition,
   index,
   setIndex,
   setCurrIndex,
+  setTransitionIndex,
 }) => {
   const isTransitioningLeft = useSharedValue(false);
   const isTransitioningRight = useSharedValue(false);
@@ -84,6 +88,10 @@ const SliderAnimated: React.FC<Props> = ({
           activeSide.value = Side.NONE;
         }
 
+        if (isTransitioningLeft.value) {
+          runOnJS(setTransitionIndex)(index - 1);
+        }
+
         left.y.value = withSpring(CENTER_OF_WINDOW, { velocity: velocityY });
         left.x.value = withSpring(
           dest,
@@ -107,6 +115,10 @@ const SliderAnimated: React.FC<Props> = ({
         const snapPoints = [0, wWidth - MIN_LEDGE];
         const dest = snapPoint(x, velocityX, snapPoints);
         isTransitioningRight.value = dest === 0;
+
+        if (isTransitioningRight.value) {
+          runOnJS(setTransitionIndex)(index + 1);
+        }
 
         right.y.value = withSpring(CENTER_OF_WINDOW, { velocity: velocityY });
         right.x.value = withSpring(
@@ -150,6 +162,7 @@ const SliderAnimated: React.FC<Props> = ({
       current={current}
       previous={previous}
       next={next}
+      transition={transition}
       activeSide={activeSide}
       left={left}
       right={right}

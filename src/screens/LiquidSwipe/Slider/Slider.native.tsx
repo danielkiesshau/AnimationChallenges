@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import Animated from 'react-native-reanimated';
 import { Vector } from 'react-native-redash';
 import {
@@ -14,6 +14,7 @@ interface Props {
   current: ReactNode;
   previous: ReactNode;
   next: ReactNode;
+  transition: ReactNode;
   activeSide: Animated.SharedValue<Side>;
   left: Vector<Animated.SharedValue<number>>;
   right: Vector<Animated.SharedValue<number>>;
@@ -26,6 +27,7 @@ const SliderNative: React.FC<Props> = ({
   current,
   previous,
   next,
+  transition,
   activeSide,
   left,
   right,
@@ -56,6 +58,7 @@ const SliderNative: React.FC<Props> = ({
             {next}
           </Wave>
         )}
+        {transition}
       </Animated.View>
     </PanGestureHandler>
   );
